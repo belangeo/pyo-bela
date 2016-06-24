@@ -24,7 +24,7 @@ line 20:
     
     CPP_FLAGS := -O3 -march=armv7-a -mtune=cortex-a8 -mfloat-abi=hard -mfpu=neon -ftree-vectorize `python-config --cflags`
 
-Step 2 - On the host computer, clone the beaglert repository:
+Step 2 - On the host computer, clone the beaglert repository
 ------------------------------------------------------------------------
     
     hg clone https://code.soundsoftware.ac.uk/hg/beaglert
