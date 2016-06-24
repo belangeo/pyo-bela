@@ -3,7 +3,7 @@ How to use pyo on the BeagleBone Black with bela
 
 ------------------------------------------------------------------------
 ------------------------------------------------------------------------
-Step 1 - Changes made to the image bela\_stable\_2016.04.19.img
+Step 1 - Changes made to the image _bela\_stable\_2016.04.19.img_
 
 1) Need the python-dev package
 
@@ -45,7 +45,7 @@ compile and run your project:
 
 See the bela wiki for more options when building projects on the BBB board.
 
-https://code.soundsoftware.ac.uk/projects/beaglert/wiki/\_Compiling\_Bela\_projects\_on\_the\_board
+https://code.soundsoftware.ac.uk/projects/beaglert/wiki/_Compiling_Bela_projects_on_the_board
 
 ------------------------------------------------------------------------
 ------------------------------------------------------------------------
