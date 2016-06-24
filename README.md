@@ -2,7 +2,6 @@ How to use pyo on the BeagleBone Black with bela
 ================================================ 
 
 ------------------------------------------------------------------------
-------------------------------------------------------------------------
 Step 1 - Changes made to the image _bela\_stable\_2016.04.19.img_
 
 1) Need the python-dev package
@@ -26,17 +25,14 @@ line 20:
     CPP_FLAGS := -O3 -march=armv7-a -mtune=cortex-a8 -mfloat-abi=hard -mfpu=neon -ftree-vectorize `python-config --cflags`
 
 ------------------------------------------------------------------------
-------------------------------------------------------------------------
 Step 2 - On the host computer, clone the beaglert repository:
     
     hg clone https://code.soundsoftware.ac.uk/hg/beaglert
 
 ------------------------------------------------------------------------
-------------------------------------------------------------------------
 Step 3 - Copy the folder "pyo-project" in the beaglert/projects directory 
 or give the full path of the folder in step 4.
 
-------------------------------------------------------------------------
 ------------------------------------------------------------------------
 Step 4 - From the script folder, with the BBB plugged to the host computer,
 compile and run your project:
@@ -47,7 +43,6 @@ See the bela wiki for more options when building projects on the BBB board.
 
 https://code.soundsoftware.ac.uk/projects/beaglert/wiki/_Compiling_Bela_projects_on_the_board
 
-------------------------------------------------------------------------
 ------------------------------------------------------------------------
 Step 5 - Replace the content of the file "main.py" with the content of an
 example from the examples folder to try different processes.
