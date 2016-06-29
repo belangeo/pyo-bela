@@ -1,4 +1,4 @@
-#include <BeagleRT.h>
+#include <Bela.h>
 #include <cmath>
 #include <iostream>
 #include <Utilities.h>
@@ -6,18 +6,18 @@
 
 Pyo pyo;
 
-bool setup(BeagleRTContext *context, void *userData)
+bool setup(BelaContext *context, void *userData)
 {
     // Initialize a pyo server.
-    pyo.setup(context->audioChannels, context->audioFrames, 
-              context->audioSampleRate, context->analogChannels);
+    pyo.setup(context->audioOutChannels, context->audioFrames, 
+              context->audioSampleRate, context->analogOutChannels);
     // Load a python file.
-    pyo.loadfile("/root/BeagleRT/source/main.py", 0);
+    pyo.loadfile("/root/Bela/projects/pyo-project/main.py", 0);
 
     return true;
 }
 
-void render(BeagleRTContext *context, void *userData)
+void render(BelaContext *context, void *userData)
 {
     // Fill pyo input buffer (channels 0-1) with audio samples.
     pyo.fillin(context->audioIn);
@@ -29,7 +29,7 @@ void render(BeagleRTContext *context, void *userData)
     pyo.analogout(context->analogOut);
 }
 
-void cleanup(BeagleRTContext *context, void *userData)
+void cleanup(BelaContext *context, void *userData)
 {
 }
 

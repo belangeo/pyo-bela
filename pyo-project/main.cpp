@@ -10,7 +10,7 @@
 #include <libgen.h>
 #include <signal.h>
 #include <getopt.h>
-#include <BeagleRT.h>
+#include <Bela.h>
 
 using namespace std;
 
@@ -25,14 +25,14 @@ void usage(const char * processName)
 {
 	cerr << "Usage: " << processName << " [options]" << endl;
 
-	BeagleRT_usage();
+	Bela_usage();
 
 	cerr << "   --help [-h]:                Print this menu\n";
 }
 
 int main(int argc, char *argv[])
 {
-	BeagleRTInitSettings settings;	// Standard audio settings
+	BelaInitSettings settings;	// Standard audio settings
 
 	struct option customOptions[] =
 	{
@@ -41,16 +41,17 @@ int main(int argc, char *argv[])
 	};
 
 	// Set default settings
-	BeagleRT_defaultSettings(&settings);
+	Bela_defaultSettings(&settings);
 	// Set the buffer size
 	settings.periodSize = 64;
 	// Set the number of Analog channels (2, 4 or 8)
-	settings.numAnalogChannels = 8;
+	settings.numAnalogInChannels = 8;
+	settings.numAnalogOutChannels = 8;
 
 	// Parse command-line arguments
 	while (1) {
 		int c;
-		if ((c = BeagleRT_getopt_long(argc, argv, "hf:", customOptions, &settings)) < 0)
+		if ((c = Bela_getopt_long(argc, argv, "hf:", customOptions, &settings)) < 0)
 				break;
 		switch (c) {
 		case 'h':
@@ -64,13 +65,13 @@ int main(int argc, char *argv[])
 	}
 
 	// Initialise the PRU audio device
-	if(BeagleRT_initAudio(&settings, 0) != 0) {
+	if(Bela_initAudio(&settings, 0) != 0) {
 		cout << "Error: unable to initialise audio" << endl;
 		return -1;
 	}
 
 	// Start the audio device running
-	if(BeagleRT_startAudio()) {
+	if(Bela_startAudio()) {
 		cout << "Error: unable to start real-time audio" << endl;
 		return -1;
 	}
@@ -85,10 +86,10 @@ int main(int argc, char *argv[])
 	}
 
 	// Stop the audio device
-	BeagleRT_stopAudio();
+	Bela_stopAudio();
 
 	// Clean up any resources allocated for audio
-	BeagleRT_cleanupAudio();
+	Bela_cleanupAudio();
 
 	// All done!
 	return 0;

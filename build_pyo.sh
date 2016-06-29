@@ -1,0 +1,2 @@
+./build_project.sh $1 -f -m 'CPPFLAGS="-I/usr/include/python2.7 -I/usr/include/arm-linux-gnueabihf/python2.7 -fno-strict-aliasing -D_FORTIFY_SOURCE=2 -g0 -fstack-protector-strong -Wformat -Werror=format-security -DNDEBUG -fwrapv -O3 -Wall -Wstrict-prototypes" LDFLAGS="-L/usr/lib/python2.7/config-arm-linux-gnueabihf -L/usr/lib" LDLIBS="-lpython2.7 -lpthread -ldl -lutil -lm -Xlinker -export-dynamic -Wl,-O3 -Wl,-Bsymbolic-functions"'
+

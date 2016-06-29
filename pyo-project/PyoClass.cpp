@@ -40,7 +40,7 @@ Pyo::~Pyo() {
 ** arguments:
 **   *buffer : float *, float pointer pointing to the host's input buffers.
 */
-void Pyo::fillin(float *buffer) {
+void Pyo::fillin(const float *buffer) {
     for (int i=0; i<bufferSize; i++) {
 	    for (int j=0; j<nChannels; j++) {
 	        pyoInBuffer[i*nTotalChannels+j] = buffer[i*nChannels+j];
@@ -56,7 +56,7 @@ void Pyo::fillin(float *buffer) {
 ** arguments:
 **   *buffer : float *, float pointer pointing to the host's analog buffers.
 */
-void Pyo::analogin(float *buffer) {
+void Pyo::analogin(const float *buffer) {
     switch (nAnalogChannels) {
         case 2:
             for (int i=0; i<bufferSize; i++) {

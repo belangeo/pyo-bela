@@ -9,8 +9,8 @@ class Pyo {
         ~Pyo();
         void setup(int nChannels, int bufferSize, int sampleRate, int nAnalogChannels);
         void process(float *buffer);
-        void fillin(float *buffer);
-        void analogin(float *buffer);
+        void fillin(const float *buffer);
+        void analogin(const float *buffer);
         void analogout(float *buffer);
         void clear();
         int loadfile(const char *file, int add);

@@ -4,12 +4,12 @@ over a common scale.
 
 """
 # Set to True to control the global gain with analog input 0.
-WITH_ANALOG_INPUT = False
+WITH_ANALOG_INPUT = True
 
 if WITH_ANALOG_INPUT:
     v = Tone(Input(2), 8) # knob 1 - global gain
 else:
-    v = 0.5
+    v = Sig(0.5)
 
 mid_freqs = [midiToHz(m+7) for m in [60,62,63.93,65,67.01,69,71,72]]
 high_freqs = [midiToHz(m+7) for m in [72,74,75.93,77,79.01]]
