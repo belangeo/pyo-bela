@@ -19,11 +19,11 @@ You will need three repos to run pyo projects with Bela.
 
     https://github.com/BelaPlatform/Bela
 
-- Pyo: Library source code to compile on the board.
+- Pyo: The DSP library source code to compile on the board.
 
     https://github.com/belangeo/pyo
 
-- Pyo-bela: Interface pyo/bela and project template.
+- Pyo-bela: Interface pyo/bela and pyo-project template.
 
     https://github.com/belangeo/pyo-bela
 
@@ -45,6 +45,7 @@ Step 2 - Compile pyo on the board
 - Compile pyo (the prompt should now looks like _root@bela ~$_):
 
     cd pyo
+
     sudo python setup.py install --minimal
 
 The last step should take about 15 minutes to complete.
