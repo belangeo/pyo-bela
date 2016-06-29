@@ -1,57 +1,79 @@
-How to use pyo on the BeagleBone Black with bela
-================================================ 
+How to use pyo on the BeagleBone Black with the Bela cape
+=========================================================
 
-Step 1 - Changes made to the image _bela\_stable\_2016.04.19.img_
-------------------------------------------------------------------------
+This tutorial has been tested with a board flashed with the 
+Bela image _v0.1 stable 2016.06.27_ and the latest Bela 
+sources from the github repo dated June 28, 2016.
 
-1) Need the python-dev package
+For instructions on how to flash your board, see the Bela 
+wiki:
 
-    sudo apt-get install python-dev
+[https://github.com/BelaPlatform/Bela/wiki/Manage-your-SD-card#flashing-an-sd-card](https://github.com/BelaPlatform/Bela/wiki/Manage-your-SD-card#flashing-an-sd-card)
 
-2) Compile a minimalistic pyo (libsndfile as only dependency)
+Step 1 - Clone or download the needed repos from github
+-------------------------------------------------------
 
-    git -c http.sslVerify=false clone https://github.com/belangeo/pyo.git
+You will need three repos to run pyo projects with Bela.
+
+- Bela: Core code and mandatory stuff to communicate with the board.
+
+    https://github.com/BelaPlatform/Bela
+
+- Pyo: Library source code to compile on the board.
+
+    https://github.com/belangeo/pyo
+
+- Pyo-bela: Interface pyo/bela and project template.
+
+    https://github.com/belangeo/pyo-bela
+
+The next steps assumes that the three repositories are side-by-side
+in the same directory (called "src" in the following example) and
+that the board is plugged to the host computer with a usb cable.
+
+Step 2 - Compile pyo on the board
+---------------------------------
+
+- Copy pyo sources to the board (from the folder "src"):
+
+    scp -r pyo/ root@192.168.7.2:/root
+
+- Connect to the board via ssh:
+
+    ssh root@192.168.7.2
+
+- Compile pyo (the prompt should now looks like _root@bela ~$_):
+
     cd pyo
     sudo python setup.py install --minimal
 
-3) Modify the Makefile to compile and link with python
+The last step should take about 15 minutes to complete.
 
-line 11:
-    
-    LIBS := -lrt -lnative -lxenomai -lsndfile `python-config --ldflags`
+Step 3 - Prepare the host for managing a pyo-project
+----------------------------------------------------
 
-line 20:
-    
-    CPP_FLAGS := -O3 -march=armv7-a -mtune=cortex-a8 -mfloat-abi=hard -mfpu=neon -ftree-vectorize `python-config --cflags`
+Back to the host computer (call exit from the ssh session or open
+a new terminal window), copy the pyo-bela/build_pyo.sh script to
+Bela/scripts folder and make it executable:
 
-Step 2 - On the host computer, clone the beaglert repository
-------------------------------------------------------------------------
-    
-    hg clone https://code.soundsoftware.ac.uk/hg/beaglert
+    cp pyo-bela/build_pyo.sh Bela/scripts
+    chmod +x Bela/scripts/build_pyo.sh
 
+Step 4 - Compile and run a pyo-project
+--------------------------------------
 
-Step 3 - Copy the folder "pyo-project" in the beaglert/projects directory 
---------------------------------------------------------------------------
+From Bela/scripts folder, compile and run the default pyo-project:
 
-Or give the full path of the folder in step 4.
-
-Step 4 - From the "script" folder, compile and run your project
-------------------------------------------------------------------------
-    
-With the BBB plugged to the host computer:
-
-    ./build_project.sh ../projects/pyo-project
-
-See the bela wiki for more options when building projects on the BBB board.
-
-https://code.soundsoftware.ac.uk/projects/beaglert/wiki/_Compiling_Bela_projects_on_the_board
+    cd Bela/scripts
+    ./build_pyo.sh ../../pyo-bela/pyo-project
 
 
 Step 5 - Try the examples
-------------------------------------------------------------------------
+-------------------------
 
-Replace the content of the file "main.py" with the content of an
-example from the examples folder to try different processes.
+Replace the content of the file pyo-bela/pyo-project/main.py with 
+the content of a file from the pyo-bela/examples folder to try 
+different processes.
 
 Documentation
 =============
