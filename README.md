@@ -34,16 +34,16 @@ that the board is plugged to the host computer with a usb cable.
 Step 2 - Compile pyo on the board
 ---------------------------------
 
-- Copy pyo sources to the board (from the folder "src"):
-    
+Copy pyo sources to the board (from the folder "src"):
+
     scp -r pyo/ root@192.168.7.2:/root
 
-- Connect to the board via ssh:
-    
+Connect to the board via ssh:
+
     ssh root@192.168.7.2
 
-- Compile pyo (the prompt should now looks like _root@bela ~$_):
-    
+Compile pyo (the prompt should now looks like _root@bela ~$_):
+
     cd pyo
     sudo python setup.py install --minimal
 
