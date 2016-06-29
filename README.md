@@ -52,7 +52,7 @@ The last step should take about 15 minutes to complete.
 Step 3 - Prepare the host for managing a pyo-project
 ----------------------------------------------------
 
-Back to the host computer (call exit from the ssh session or open
+Back to the host computer (call _exit_ from the ssh session or open
 a new terminal window), copy the pyo-bela/build_pyo.sh script to
 Bela/scripts folder and make it executable:
 
@@ -62,7 +62,9 @@ Bela/scripts folder and make it executable:
 Step 4 - Compile and run a pyo-project
 --------------------------------------
 
-From Bela/scripts folder, compile and run the default pyo-project:
+From Bela/scripts folder, compile and run the default pyo-project 
+(repeat the last line each time you make changes to the pyo script
+to run the new dsp):
 
     cd Bela/scripts
     ./build_pyo.sh ../../pyo-bela/pyo-project
@@ -73,7 +75,7 @@ Step 5 - Try the examples
 
 Replace the content of the file pyo-bela/pyo-project/main.py with 
 the content of a file from the pyo-bela/examples folder to try 
-different processes.
+different processes. I'm working on adding more examples... Stay tuned!
 
 Documentation
 =============
