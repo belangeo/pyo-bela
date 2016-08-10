@@ -1,0 +1,19 @@
+{
+  "fileName": "render.cpp",
+  "CLArgs": {
+    "-p": "16",
+    "-C": "8",
+    "-B": "16",
+    "-H": "-6",
+    "-N": "1",
+    "-G": "1",
+    "-M": "0",
+    "-D": "0",
+    "-A": "0",
+    "--pga-gain-left": "10",
+    "--pga-gain-right": "10",
+    "user": "",
+    "make": "CPPFLAGS=-I/usr/include/python2.7 -I/usr/include/arm-linux-gnueabihf/python2.7 -fno-strict-aliasing -D_FORTIFY_SOURCE=2 -g0 -fstack-protector-strong -Wformat -Werror=format-security -DNDEBUG -fwrapv -O3 -Wall -Wstrict-prototypes;LDFLAGS=-L/usr/lib/python1.7/config-arm-linux-gnueabihf -L/usr/lib;LDLIBS=-lpython2.7 -lpthread -ldl -lutil -lm -Xlinker -export-dynamic -Wl,-O2 -Wl,-Bsymbolic-functions"
+  },
+  "breakpoints": []
+}
