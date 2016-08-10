@@ -12,8 +12,12 @@ bool setup(BelaContext *context, void *userData)
     pyo.setup(context->audioOutChannels, context->audioFrames, 
               context->audioSampleRate, context->analogOutChannels);
     // Load a python file.
-    pyo.loadfile("/root/Bela/projects/pyo-project/main.py", 0);
-
+    char filename[] = "main.py";
+    int ret = pyo.loadfile(filename, 0);
+    if(ret != 0){
+        printf("Error: file \"%s\" not found", filename);
+        return false;
+    }
     return true;
 }
 
