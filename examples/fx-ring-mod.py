@@ -1,5 +1,5 @@
 """
-01-Simple FX - Stereo ring modulator.
+fx-ring-mod.py - Stereo ring modulator.
 
 This example shows how to build a ring modulation effect 
 with modulator's frequency and brightness controlled by
