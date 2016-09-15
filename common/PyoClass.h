@@ -13,6 +13,7 @@ class Pyo {
         void analogin(const float *buffer);
         void analogout(float *buffer);
         void clear();
+        void midievent(int status, int data1, int data2);
         int loadfile(const char *file, int add);
         int exec(const char *msg);
         int value(const char *name, float value);

@@ -7,7 +7,7 @@ over a common scale.
 WITH_ANALOG_INPUT = False
 
 if WITH_ANALOG_INPUT:
-    v = Tone(Input(2), 8) # knob 1 - global gain
+    v = Tone(Input(2), 8) # analog input 0 => global gain
 else:
     v = Sig(0.5)
 

@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 	// Set default settings
 	Bela_defaultSettings(&settings);
 	// Set the buffer size
-	settings.periodSize = 64;
+	settings.periodSize = 32;
 	// Set the number of Analog channels (2, 4 or 8)
 	settings.numAnalogInChannels = 8;
 	settings.numAnalogOutChannels = 8;

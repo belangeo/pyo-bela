@@ -138,6 +138,13 @@ void Pyo::analogout(float *buffer) {
      }
 }
 
+/* 
+** Need documentation... 
+*/
+void Pyo::midievent(int status, int data1, int data2) {
+    pyo_add_midi_event(interpreter, status, data1, data2);
+}
+
 /*
 ** Execute a python script "file" in the objectès thread's interpreter.
 ** An integer "add" is needed to indicate if the pyo server should be

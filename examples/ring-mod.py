@@ -2,7 +2,7 @@
 01-Simple FX - Stereo ring modulator.
 
 This example shows how to build a ring modulation effect 
-with modulator's frequency and brightness control with
+with modulator's frequency and brightness controlled by
 analog inputs (use audio inputs after the stereo audio
 channels, ie. Input(2) is analog-in 0, Input(3) is 
 analog-in 1, etc.).

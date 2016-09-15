@@ -14,10 +14,11 @@ bool setup(BelaContext *context, void *userData)
     // Load a python file.
     char filename[] = "main.py";
     int ret = pyo.loadfile(filename, 0);
-    if(ret != 0){
+    if (ret != 0) {
         printf("Error: file \"%s\" not found", filename);
         return false;
     }
+
     return true;
 }
 
