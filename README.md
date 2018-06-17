@@ -61,7 +61,7 @@ without ".py"). The second argument is the path of the pyo-bela/common folder,
 which contain all needed files to run a bela project.
 
     cd Bela/scripts
-    ./build_pyo.sh ../../pyo-bela/exmples/music-box.py ../../pyo-bela/common
+    ./build_pyo.sh ../../pyo-bela/examples/music-box.py ../../pyo-bela/common
 
 The second argument can be ommited if an environment variable called PYO_BELA_COMMON
 is set to point to the location of pyo-bela/common folder.
