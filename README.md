@@ -76,5 +76,5 @@ For a complete description of functions that can be used to communicate
 with the pyo embedded processes, see documentation comments in the file 
 common/PyoClass.cpp.
 
-(c) 2016 - belangeo
+(c) 2018 - belangeo
 
