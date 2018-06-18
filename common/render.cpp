@@ -6,8 +6,14 @@
 
 Pyo pyo;
 
-bool setup(BelaContext *context, void *userData)
-{
+void Bela_userSettings(BelaInitSettings *settings) {
+	settings->periodSize = 32;
+	settings->numAnalogInChannels = 8;
+	settings->numAnalogOutChannels = 8;
+	settings->analogOutputsPersist = 0;
+}
+
+bool setup(BelaContext *context, void *userData) {
     // Initialize a pyo server.
     pyo.setup(context->audioOutChannels, context->audioFrames, 
               context->audioSampleRate, context->analogOutChannels);
@@ -22,8 +28,7 @@ bool setup(BelaContext *context, void *userData)
     return true;
 }
 
-void render(BelaContext *context, void *userData)
-{
+void render(BelaContext *context, void *userData) {
     // Fill pyo input buffer (channels 0-1) with audio samples.
     pyo.fillin(context->audioIn);
     // Fill pyo input buffer (channels 2+) with analog inputs.
@@ -31,10 +36,10 @@ void render(BelaContext *context, void *userData)
     // Call pyo processing function and retrieve back stereo outputs.
     pyo.process(context->audioOut);
     // Get back pyo output channels 2+ as analog outputs.
-    pyo.analogout(context->analogOut);
+    if (context->analogOut != NULL) {
+        pyo.analogout(context->analogOut);
+    }
 }
 
-void cleanup(BelaContext *context, void *userData)
-{
-}
+void cleanup(BelaContext *context, void *userData) {}
 

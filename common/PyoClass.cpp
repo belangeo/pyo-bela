@@ -49,7 +49,7 @@ void Pyo::fillin(const float *buffer) {
 }
 
 /*
-** This function fills pyo's reminaing input buffers (after audio voices)
+** This function fills pyo's remaining input buffers (after audio voices)
 ** with samples coming from analog inputs. Should be called once per 
 ** process block, inside the host's render function.
 **

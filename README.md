@@ -2,8 +2,8 @@ How to use pyo on the BeagleBone Black with the Bela cape
 =========================================================
 
 This tutorial has been tested with a board flashed with the 
-Bela image _v0.1.0a stable 2016.07.23_ and the latest Bela 
-sources from the github repo dated September 09, 2016.
+Bela image _v0.3.4_ and the latest Bela sources from the 
+github repo dated June 16, 2018.
 
 For instructions on how to flash your board, see the Bela 
 wiki:
