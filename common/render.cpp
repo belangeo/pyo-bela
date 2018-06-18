@@ -7,10 +7,11 @@
 Pyo pyo;
 
 void Bela_userSettings(BelaInitSettings *settings) {
-	settings->periodSize = 32;
-	settings->numAnalogInChannels = 8;
-	settings->numAnalogOutChannels = 8;
-	settings->analogOutputsPersist = 0;
+    settings->periodSize = 32;
+    settings->uniformSampleRate = 1;
+    settings->numAnalogInChannels = 8;
+    settings->numAnalogOutChannels = 8;
+    settings->analogOutputsPersist = 0;
 }
 
 bool setup(BelaContext *context, void *userData) {

@@ -57,32 +57,11 @@ void Pyo::fillin(const float *buffer) {
 **   *buffer : float *, float pointer pointing to the host's analog buffers.
 */
 void Pyo::analogin(const float *buffer) {
-    switch (nAnalogChannels) {
-        case 2:
-            for (int i=0; i<bufferSize; i++) {
-	            for (int j=0; j<nAnalogChannels; j++) {
-	                pyoInBuffer[i*nTotalChannels+j+nChannels] = buffer[i*2*nAnalogChannels+j];
-	            }
-            }
-            break;
-         case 4:
-            for (int i=0; i<bufferSize; i++) {
-	            for (int j=0; j<nAnalogChannels; j++) {
-	                pyoInBuffer[i*nTotalChannels+j+nChannels] = buffer[i*nAnalogChannels+j];
-	            }
-            }
-            break;
-         case 8:
-            int ioff, joff;
-            for (int i=0; i<bufferSize/2; i++) {
-                ioff = i * 2 * nTotalChannels;
-	            for (int j=0; j<nAnalogChannels; j++) {
-                    joff = ioff + nChannels + j;
-	                pyoInBuffer[joff] = pyoInBuffer[joff+nTotalChannels] = buffer[i*nAnalogChannels+j];
-	            }
-            }
-            break;
-     }
+    for (int i=0; i<bufferSize; i++) {
+        for (int j=0; j<nAnalogChannels; j++) {
+            pyoInBuffer[i*nTotalChannels+j+nChannels] = buffer[i*nAnalogChannels+j];
+        }
+    }
 }
 
 /*
@@ -111,31 +90,11 @@ void Pyo::process(float *buffer) {
 **   *buffer : float *, float pointer pointing to the host's analog output buffers.
 */
 void Pyo::analogout(float *buffer) {
-    switch (nAnalogChannels) {
-        case 2:
-            int bufpos;
-            for (int i=0; i<bufferSize; i++) {
-                for (int j=0; j<nAnalogChannels; j++) {
-                    bufpos = i * 2 * nAnalogChannels + j;
-                    buffer[bufpos] = buffer[bufpos+nAnalogChannels] = pyoOutBuffer[i*nTotalChannels+j+nChannels];
-                }
-            }
-            break;
-         case 4:
-            for (int i=0; i<bufferSize; i++) {
-                for (int j=0; j<nAnalogChannels; j++) {
-                    buffer[i*nAnalogChannels+j] = pyoOutBuffer[i*nTotalChannels+j+nChannels];
-                }
-            }
-            break;
-         case 8:
-            for (int i=0; i<bufferSize/2; i++) {
-                for (int j=0; j<nAnalogChannels; j++) {
-                    buffer[i*nAnalogChannels+j] = pyoOutBuffer[i*2*nTotalChannels+j+nChannels];
-                }
-            }
-            break;
-     }
+    for (int i=0; i<bufferSize; i++) {
+        for (int j=0; j<nAnalogChannels; j++) {
+            buffer[i*nAnalogChannels+j] = pyoOutBuffer[i*nTotalChannels+j+nChannels];
+        }
+    }
 }
 
 /* 
